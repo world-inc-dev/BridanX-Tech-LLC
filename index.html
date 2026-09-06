@@ -1,0 +1,1606 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BridanX Tech LLC builds modern websites, web and mobile applications, digital platforms, custom software, APIs and business automation solutions.">
+  <meta name="keywords" content="BridanX Tech LLC, website development, web development, application development, mobile app development, platform development, custom software, API integration, business automation">
+  <meta name="author" content="BridanX Tech LLC">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#06101d">
+  <link rel="canonical" href="https://www.bridanxtech.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BridanX Tech LLC | Digital Products & Software Development">
+  <meta property="og:description" content="Modern websites, applications, platforms and custom software built around real business goals.">
+  <meta property="og:url" content="https://www.bridanxtech.com/">
+  <meta property="og:site_name" content="BridanX Tech LLC">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BridanX Tech LLC | Digital Products & Software Development">
+  <meta name="twitter:description" content="Modern websites, applications, platforms and custom software.">
+
+  <title>BridanX Tech LLC | Digital Products & Software Development</title>
+
+  <!--
+    IMPORTANT:
+    Replace https://www.bridanxtech.com/ with your real domain before publishing.
+    Add Google Search Console and analytics IDs after deployment.
+  -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"BridanX Tech LLC",
+    "url":"https://www.bridanxtech.com/",
+    "email":"mailto:worldbridan3@gmail.com",
+    "telephone":"+256746673971",
+    "description":"Digital products, software and technology development services."
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#050c16;
+      --bg2:#081525;
+      --panel:rgba(255,255,255,.055);
+      --panel2:rgba(255,255,255,.075);
+      --line:rgba(255,255,255,.12);
+      --text:#f7f9fc;
+      --muted:#9eacbd;
+      --blue:#4f8cff;
+      --cyan:#42d9ff;
+      --green:#27d17c;
+      --max:1180px;
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 82% 8%,rgba(79,140,255,.18),transparent 30%),
+        radial-gradient(circle at 5% 45%,rgba(66,217,255,.08),transparent 28%),
+        linear-gradient(180deg,var(--bg),var(--bg2) 55%,var(--bg));
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.035;
+      background-image:
+        linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px);
+      background-size:52px 52px;
+      z-index:-1;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    /* NAVIGATION */
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(5,12,22,.72);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:850;
+      letter-spacing:-.5px;
+      white-space:nowrap;
+    }
+
+    .logo{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      box-shadow:0 8px 35px rgba(79,140,255,.25);
+      color:#fff;
+      font-weight:950;
+      font-size:13px;
+    }
+
+    .brand small{
+      display:block;
+      font-size:8px;
+      letter-spacing:2px;
+      color:#91a0b2;
+      margin-top:-2px;
+    }
+
+    .links{
+      display:flex;
+      align-items:center;
+      gap:25px;
+      color:#b8c4d3;
+      font-size:13px;
+    }
+
+    .links a{transition:.2s}
+    .links a:hover{color:#fff}
+
+    .nav-cta{
+      padding:11px 17px;
+      border-radius:12px;
+      background:#fff;
+      color:#07101b;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .menu{
+      display:none;
+      border:0;
+      background:none;
+      color:#fff;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      padding:12px 0 20px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    .mobile-menu.open{display:block}
+    .mobile-menu a{
+      display:block;
+      padding:12px 4px;
+      color:#cbd5e2;
+    }
+
+    /* HERO */
+    .hero{padding:92px 0 80px}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:62px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.035);
+      padding:8px 13px;
+      border-radius:999px;
+      color:#c9d4e2;
+      font-size:11px;
+      font-weight:750;
+      letter-spacing:.6px;
+      margin-bottom:22px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 16px var(--green);
+    }
+
+    h1{
+      font-size:clamp(45px,6.2vw,78px);
+      line-height:1.01;
+      letter-spacing:-4px;
+      max-width:790px;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#fff 15%,#85adff 58%,#57dcff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-copy{
+      color:var(--muted);
+      font-size:18px;
+      max-width:650px;
+      margin:25px 0 30px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 19px;
+      border-radius:13px;
+      border:1px solid var(--line);
+      font-size:13px;
+      font-weight:750;
+      transition:.2s;
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:#fff;color:#07101b;border-color:#fff}
+    .btn-secondary{background:rgba(255,255,255,.04)}
+
+    .mini-proof{
+      display:flex;
+      gap:25px;
+      flex-wrap:wrap;
+      margin-top:27px;
+      color:#9caabd;
+      font-size:11px;
+    }
+
+    .mini-proof span::before{
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+      margin-right:7px;
+    }
+
+    /* CODE VISUAL */
+    .visual{position:relative}
+
+    .window{
+      border:1px solid var(--line);
+      border-radius:25px;
+      padding:15px;
+      background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      box-shadow:0 35px 100px rgba(0,0,0,.38);
+      backdrop-filter:blur(16px);
+    }
+
+    .windowbar{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 4px 14px;
+    }
+
+    .circle{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#667487;
+    }
+
+    .code{
+      min-height:370px;
+      border-radius:17px;
+      padding:23px;
+      overflow:hidden;
+      background:#050b14;
+      color:#a9b7c9;
+      font:13px/1.85 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+
+    .kw{color:#79aaff}
+    .str{color:#6edc9b}
+    .fn{color:#e5a7ff}
+    .num{color:#f7c66b}
+    .comment{color:#68778b}
+
+    .float-card{
+      position:absolute;
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:12px 15px;
+      background:rgba(7,17,29,.92);
+      box-shadow:0 18px 45px rgba(0,0,0,.35);
+      color:#d7e1ec;
+      font-size:11px;
+      backdrop-filter:blur(14px);
+    }
+
+    .float-one{left:-30px;bottom:30px}
+    .float-two{right:-24px;top:34px}
+
+    /* GENERAL SECTIONS */
+    section{padding:92px 0}
+
+    .section-head{
+      max-width:720px;
+      margin-bottom:40px;
+    }
+
+    .label{
+      color:#78aaff;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:11px;
+      font-weight:850;
+      margin-bottom:11px;
+    }
+
+    h2{
+      font-size:clamp(32px,4.5vw,52px);
+      line-height:1.08;
+      letter-spacing:-2.4px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      margin-top:15px;
+      font-size:15px;
+    }
+
+    /* TRUST */
+    .trust-strip{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.025);
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .trust-item{
+      padding:25px 20px;
+      border-right:1px solid var(--line);
+      text-align:center;
+      color:#c9d3df;
+      font-size:12px;
+      font-weight:750;
+    }
+
+    .trust-item:last-child{border-right:0}
+    .trust-item strong{display:block;color:#fff;font-size:20px;margin-bottom:2px}
+
+    /* CARDS */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:25px;
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(110,165,255,.3);
+      background:var(--panel2);
+    }
+
+    .icon{
+      width:45px;
+      height:45px;
+      display:grid;
+      place-items:center;
+      border-radius:13px;
+      background:rgba(79,140,255,.12);
+      color:#8cb6ff;
+      font-size:20px;
+      margin-bottom:21px;
+    }
+
+    .card h3{font-size:18px;margin-bottom:9px}
+    .card p{color:var(--muted);font-size:13px}
+
+    .learn{
+      display:inline-block;
+      margin-top:17px;
+      color:#9fc2ff;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    /* SOLUTIONS */
+    .solution{
+      min-height:280px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .solution::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 80% 10%,rgba(79,140,255,.25),transparent 35%);
+      pointer-events:none;
+    }
+
+    .solution > *{position:relative}
+    .solution-number{color:#70839b;font-size:11px;margin-bottom:auto}
+    .solution h3{font-size:24px}
+
+    /* ABOUT / CEO */
+    .split{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:65px;
+      align-items:center;
+    }
+
+    .about-copy p{color:var(--muted);margin-top:17px}
+
+    .checks{margin-top:24px}
+    .check{
+      display:flex;
+      gap:12px;
+      margin:13px 0;
+      color:#d4ddea;
+      font-size:13px;
+    }
+
+    .check b{color:var(--green)}
+
+    .panel{
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:29px;
+      background:rgba(255,255,255,.045);
+    }
+
+    .capability-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .capability-list div{
+      border:1px solid var(--line);
+      padding:12px;
+      border-radius:11px;
+      color:#bac6d5;
+      font-size:12px;
+    }
+
+    .ceo{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:35px;
+      align-items:center;
+    }
+
+    .ceo-photo{
+      min-height:300px;
+      border-radius:22px;
+      border:1px dashed rgba(255,255,255,.22);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:25px;
+      background:
+        radial-gradient(circle at 50% 20%,rgba(79,140,255,.22),transparent 30%),
+        rgba(255,255,255,.035);
+    }
+
+    .avatar{
+      width:82px;
+      height:82px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#315ea9,#18314f);
+      font-size:23px;
+      font-weight:900;
+      margin:auto auto 15px;
+    }
+
+    .ceo-photo small{display:block;color:#8292a7;font-size:11px}
+
+    .ceo-copy h3{font-size:32px;letter-spacing:-1px}
+    .role{color:#7faeff;font-size:12px;font-weight:800;margin:5px 0 17px}
+    .ceo-copy p{color:var(--muted);font-size:14px}
+
+    .vision-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .vision-box{
+      border-top:1px solid var(--line);
+      padding-top:15px;
+    }
+
+    .vision-box strong{font-size:11px;letter-spacing:1.4px}
+    .vision-box p{font-size:12px;margin-top:5px}
+
+    /* PROCESS */
+    .process{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .step{
+      padding:26px;
+      border-top:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);
+    }
+
+    .step-number{color:#72a6ff;font-size:11px;font-weight:850;margin-bottom:13px}
+    .step h3{font-size:19px;margin-bottom:7px}
+    .step p{color:var(--muted);font-size:13px}
+
+    /* TECH */
+    .tech-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tech{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 16px;
+      color:#c5d0dd;
+      background:rgba(255,255,255,.035);
+      font-size:12px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial{
+      min-height:235px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .stars{letter-spacing:3px;color:#f7c85b;font-size:13px;margin-bottom:17px}
+    .testimonial blockquote{color:#dce4ee;font-size:15px;line-height:1.75}
+    .person{margin-top:auto;padding-top:22px;color:#8e9caf;font-size:11px}
+    .person strong{display:block;color:#fff;font-size:13px}
+
+    /* TRUSTED BY */
+    .trusted{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+    }
+
+    .trusted-box{
+      min-height:85px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:15px;
+      color:#8492a4;
+      font-size:10px;
+      letter-spacing:1.5px;
+      font-weight:800;
+      background:rgba(255,255,255,.025);
+    }
+
+    .trusted-note{
+      margin-top:16px;
+      color:#728195;
+      font-size:11px;
+    }
+
+    /* INSIGHTS */
+    .article{
+      overflow:hidden;
+      padding:0;
+    }
+
+    .article-top{
+      height:150px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 70% 20%,rgba(66,217,255,.18),transparent 35%),
+        linear-gradient(135deg,rgba(79,140,255,.12),rgba(255,255,255,.02));
+      border-bottom:1px solid var(--line);
+      font-size:35px;
+    }
+
+    .article-body{padding:23px}
+    .article-body h3{font-size:18px}
+    .article-body p{margin-top:9px}
+
+    /* FAQ */
+    .faq{max-width:900px}
+    details{
+      border-top:1px solid var(--line);
+      padding:19px 0;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:750;
+      color:#e6edf5;
+      font-size:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";color:#7faeff;font-size:20px}
+    details[open] summary::after{content:"−"}
+    details p{color:var(--muted);font-size:13px;padding:12px 35px 0 0}
+
+    /* CTA */
+    .cta{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:60px 30px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 90% 0,rgba(79,140,255,.22),transparent 35%),
+        radial-gradient(circle at 10% 100%,rgba(66,217,255,.09),transparent 30%),
+        rgba(255,255,255,.035);
+    }
+
+    .cta p{
+      max-width:650px;
+      color:var(--muted);
+      margin:15px auto 26px;
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:45px;
+      align-items:start;
+    }
+
+    .contact-method{
+      padding:17px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .contact-method span{
+      display:block;
+      color:#78889d;
+      font-size:10px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .contact-method a{
+      display:block;
+      margin-top:5px;
+      color:#e4ebf4;
+      font-size:14px;
+    }
+
+    form{
+      display:grid;
+      gap:13px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:13px;
+    }
+
+    input,textarea,select{
+      width:100%;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+      color:#fff;
+      border-radius:12px;
+      padding:14px;
+      outline:none;
+    }
+
+    input:focus,textarea:focus,select:focus{
+      border-color:rgba(100,160,255,.6);
+    }
+
+    textarea{min-height:140px;resize:vertical}
+    select option{background:#0a1626}
+
+    .form-note{font-size:10px;color:#748398}
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--line);
+      padding:40px 0 90px;
+      color:#7f8da0;
+      font-size:12px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr 1fr;
+      gap:35px;
+    }
+
+    .footer-brand p{max-width:330px;margin-top:13px;color:#77869a}
+    .footer-title{color:#d7dfe9;font-weight:800;margin-bottom:12px}
+    .footer-links a{display:block;margin:8px 0;color:#8592a4}
+    .copyright{
+      border-top:1px solid var(--line);
+      margin-top:35px;
+      padding-top:20px;
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    /* FLOATING CONTACT */
+    .floating-contact{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:120;
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      align-items:flex-end;
+    }
+
+    .float-btn{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      border:0;
+      color:#fff;
+      border-radius:999px;
+      padding:12px 16px;
+      font-size:12px;
+      font-weight:850;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .float-btn:hover{transform:translateY(-2px)}
+    .whatsapp{background:#1db954}
+    .call{background:#246bfe}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+      .links{gap:16px}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .hero-grid,.split{grid-template-columns:1fr}
+      .visual{max-width:720px}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .links,.nav-cta{display:none}
+      .menu{display:block}
+      .hero{padding:55px 0 65px}
+      h1{font-size:46px;letter-spacing:-2.8px}
+      .hero-copy{font-size:16px}
+      .grid-3,.process{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item{border-bottom:1px solid var(--line)}
+      .trusted{grid-template-columns:1fr 1fr}
+      .ceo{grid-template-columns:1fr}
+      .ceo-photo{min-height:240px}
+      .vision-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      section{padding:68px 0}
+      .float-btn{width:48px;height:48px;padding:0;justify-content:center;font-size:20px}
+      .float-btn span{display:none}
+      .floating-contact{right:13px;bottom:13px}
+    }
+
+    @media(max-width:460px){
+      .footer-grid{grid-template-columns:1fr}
+      .copyright{flex-direction:column}
+      .capability-list{grid-template-columns:1fr}
+      .code{min-height:315px;font-size:10.5px;padding:17px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="BridanX Tech LLC home">
+        <div class="logo">BX</div>
+        <div>
+          BridanX Tech
+          <small>LLC</small>
+        </div>
+      </a>
+
+      <nav class="links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="#contact">Start a Project →</a>
+
+      <button class="menu" id="menuBtn" aria-label="Open navigation">☰</button>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#insights">Insights</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            DIGITAL PRODUCT & SOFTWARE DEVELOPMENT
+          </div>
+
+          <h1>
+            We build <span class="gradient">digital products</span> that move businesses forward.
+          </h1>
+
+          <p class="hero-copy">
+            BridanX Tech LLC designs and develops modern websites, applications,
+            digital platforms and custom software around real business goals.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Start a Project →</a>
+            <a class="btn btn-secondary" href="#services">Explore Services</a>
+          </div>
+
+          <div class="mini-proof">
+            <span>Responsive design</span>
+            <span>Performance focused</span>
+            <span>Built to evolve</span>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="Software development visual">
+          <div class="window">
+            <div class="windowbar">
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
+            </div>
+
+            <div class="code">
+              <div><span class="kw">const</span> <span class="fn">product</span> = {</div>
+              <div>&nbsp;&nbsp;strategy: <span class="str">"clear"</span>,</div>
+              <div>&nbsp;&nbsp;design: <span class="str">"premium"</span>,</div>
+              <div>&nbsp;&nbsp;performance: <span class="str">"fast"</span>,</div>
+              <div>&nbsp;&nbsp;experience: <span class="str">"human"</span></div>
+              <div>};</div>
+              <br>
+              <div><span class="kw">function</span> <span class="fn">buildProduct</span>(idea) {</div>
+              <div>&nbsp;&nbsp;<span class="kw">return</span> idea.<span class="fn">transform</span>({</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;web: <span class="kw">true</span>,</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;mobile: <span class="kw">true</span>,</div>
+              <div>&nbsp;&nbsp;&nbsp;&nbsp;scalable: <span class="kw">true</span></div>
+              <div>&nbsp;&nbsp;});</div>
+              <div>}</div>
+              <br>
+              <div><span class="fn">buildProduct</span>(yourIdea);</div>
+              <div class="comment">// build. launch. improve.</div>
+            </div>
+          </div>
+
+          <div class="float-card float-one">✓ Responsive by design</div>
+          <div class="float-card float-two">⚡ Built for performance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>01</strong>Modern Development</div>
+        <div class="trust-item"><strong>02</strong>Responsive Experiences</div>
+        <div class="trust-item"><strong>03</strong>Scalable Architecture</div>
+        <div class="trust-item"><strong>04</strong>Performance Focused</div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">What we do</div>
+          <h2>Technology services built around your business.</h2>
+          <p>
+            From a polished company website to a complete digital platform,
+            we turn ideas into practical, modern software.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">⌘</div>
+            <h3>Website Development</h3>
+            <p>Professional corporate websites, landing pages, portfolios, e-commerce experiences and custom web experiences.</p>
+            <a class="learn" href="#contact">Discuss Website →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">▣</div>
+            <h3>Application Development</h3>
+            <p>Modern web and mobile applications with intuitive interfaces and functionality designed around users.</p>
+            <a class="learn" href="#contact">Discuss Application →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">◈</div>
+            <h3>Platform Development</h3>
+            <p>Custom dashboards, portals, marketplaces, management systems and digital business platforms.</p>
+            <a class="learn" href="#contact">Discuss Platform →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">⚙</div>
+            <h3>Custom Software</h3>
+            <p>Purpose-built software designed around specialized business requirements and workflows.</p>
+            <a class="learn" href="#contact">Discuss Software →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">⌁</div>
+            <h3>API & Integrations</h3>
+            <p>Connect services, databases, payment systems and applications through reliable integrations.</p>
+            <a class="learn" href="#contact">Discuss Integration →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Automation & Digital Solutions</h3>
+            <p>Streamline repetitive operations and improve workflows with technology-driven solutions.</p>
+            <a class="learn" href="#contact">Discuss Automation →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Solutions</div>
+          <h2>From an idea to a working digital product.</h2>
+          <p>Choose the direction that fits your business, then build from there.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card solution">
+            <div class="solution-number">01 / BUSINESS WEBSITES</div>
+            <h3>Business Websites</h3>
+            <p>Build a credible, fast and conversion-focused digital presence.</p>
+            <a class="learn" href="#contact">Build a Website →</a>
+          </article>
+
+          <article class="card solution">
+            <div class="solution-number">02 / DIGITAL PLATFORMS</div>
+            <h3>Digital Platforms</h3>
+            <p>Bring business processes, users and services together in one platform.</p>
+            <a class="learn" href="#contact">Build a Platform →</a>
+          </article>
+
+          <article class="card solution">
+            <div class="solution-number">03 / CUSTOM APPLICATIONS</div>
+            <h3>Custom Applications</h3>
+            <p>Create software around the way your business actually works.</p>
+            <a class="learn" href="#contact">Build an Application →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container split">
+        <div class="about-copy">
+          <div class="label">About BridanX</div>
+          <h2>Technology with purpose.</h2>
+          <p>
+            BridanX Tech LLC focuses on creating digital products that solve
+            practical problems, improve experiences and help businesses operate
+            more effectively.
+          </p>
+
+          <div class="checks">
+            <div class="check"><b>✓</b><span>Business-focused product thinking</span></div>
+            <div class="check"><b>✓</b><span>Modern, responsive user experiences</span></div>
+            <div class="check"><b>✓</b><span>Scalable technical foundations</span></div>
+            <div class="check"><b>✓</b><span>Clear communication throughout development</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="label">Capabilities</div>
+          <h3 style="font-size:26px">Digital foundations that work together.</h3>
+          <p style="color:var(--muted);margin-top:10px;font-size:13px">
+            Frontend interfaces, backend systems, databases, APIs,
+            authentication, dashboards, integrations and automation.
+          </p>
+
+          <div class="capability-list">
+            <div>Frontend Development</div>
+            <div>Backend Systems</div>
+            <div>Databases</div>
+            <div>REST APIs</div>
+            <div>Authentication</div>
+            <div>Dashboards</div>
+            <div>Integrations</div>
+            <div>Automation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEO -->
+    <section id="leadership">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Leadership</div>
+          <h2>Meet the founder behind BridanX.</h2>
+        </div>
+
+        <div class="panel ceo">
+          <div class="ceo-photo">
+            <div>
+              <div class="avatar">BW</div>
+              <strong>Bridan World</strong>
+              <small>Professional CEO portrait can be added here.</small>
+            </div>
+          </div>
+
+          <div class="ceo-copy">
+            <h3>Bridan World</h3>
+            <div class="role">FOUNDER & CHIEF EXECUTIVE OFFICER</div>
+
+            <p>
+              BridanX Tech LLC is built around a simple principle:
+              technology should solve real problems, create better experiences
+              and help ambitious businesses move forward.
+            </p>
+
+            <div class="vision-grid">
+              <div class="vision-box">
+                <strong>VISION</strong>
+                <p>Build useful technology that creates lasting value.</p>
+              </div>
+              <div class="vision-box">
+                <strong>MISSION</strong>
+                <p>Turn ideas and challenges into practical digital solutions.</p>
+              </div>
+              <div class="vision-box">
+                <strong>APPROACH</strong>
+                <p>Combine design, technology and business thinking.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Our process</div>
+          <h2>From concept to launch.</h2>
+          <p>A structured development process keeps the project focused from the first conversation to launch.</p>
+        </div>
+
+        <div class="process">
+          <div class="step"><div class="step-number">01 — DISCOVER</div><h3>Understand</h3><p>Define your business objectives, users, requirements and priorities.</p></div>
+          <div class="step"><div class="step-number">02 — STRATEGIZE</div><h3>Plan</h3><p>Choose the product structure, technology direction and development roadmap.</p></div>
+          <div class="step"><div class="step-number">03 — DESIGN</div><h3>Design</h3><p>Create the interface and experience before development moves forward.</p></div>
+          <div class="step"><div class="step-number">04 — DEVELOP</div><h3>Build</h3><p>Develop the frontend, backend, database, APIs and integrations.</p></div>
+          <div class="step"><div class="step-number">05 — TEST</div><h3>Refine</h3><p>Test functionality, responsiveness, usability and performance.</p></div>
+          <div class="step"><div class="step-number">06 — LAUNCH</div><h3>Deploy</h3><p>Launch the product and prepare it for ongoing improvement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY BRIDANX -->
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Why BridanX</div>
+          <h2>Built with the future in mind.</h2>
+        </div>
+
+        <div class="grid-4">
+          <div class="card"><div class="icon">⚡</div><h3>Performance</h3><p>Fast and efficient experiences designed with performance in mind.</p></div>
+          <div class="card"><div class="icon">◉</div><h3>Reliability</h3><p>Thoughtful engineering and maintainable technical foundations.</p></div>
+          <div class="card"><div class="icon">▤</div><h3>Responsive</h3><p>Interfaces designed for phones, tablets and desktops.</p></div>
+          <div class="card"><div class="icon">↗</div><h3>Scalability</h3><p>Architecture designed to evolve as requirements change.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section id="technology">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Technology</div>
+          <h2>Modern tools. Practical solutions.</h2>
+          <p>Technology choices can be tailored to the requirements of each project.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech">HTML5</div>
+          <div class="tech">CSS3</div>
+          <div class="tech">JavaScript</div>
+          <div class="tech">Python</div>
+          <div class="tech">Node.js</div>
+          <div class="tech">REST APIs</div>
+          <div class="tech">Databases</div>
+          <div class="tech">Cloud Technologies</div>
+          <div class="tech">Git</div>
+          <div class="tech">Responsive Design</div>
+          <div class="tech">Automation</div>
+          <div class="tech">Custom Integrations</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Projects</div>
+          <h2>Selected work.</h2>
+          <p>
+            A portfolio should showcase genuine BridanX work. Add completed
+            projects here as they are delivered.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Business Website</h3>
+            <p>Project showcase placeholder for a completed BridanX website project.</p>
+            <a class="learn" href="#contact">Discuss a Similar Project →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Digital Platform</h3>
+            <p>Project showcase placeholder for a completed BridanX platform project.</p>
+            <a class="learn" href="#contact">Discuss a Similar Project →</a>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Custom Application</h3>
+            <p>Project showcase placeholder for a completed BridanX application project.</p>
+            <a class="learn" href="#contact">Discuss a Similar Project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Testimonials</div>
+          <h2>Client experiences.</h2>
+          <p>
+            Replace the sample placeholders below with genuine client feedback
+            before publishing them as testimonials.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              “Add a genuine client testimonial here describing their experience working with BridanX.”
+            </blockquote>
+            <div class="person">
+              <strong>Client Name</strong>
+              Company / Role
+            </div>
+          </article>
+
+          <article class="card testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              “Add verified feedback here about a completed website, application or software project.”
+            </blockquote>
+            <div class="person">
+              <strong>Client Name</strong>
+              Company / Role
+            </div>
+          </article>
+
+          <article class="card testimonial">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              “Add another authentic customer experience here once the project has been completed.”
+            </blockquote>
+            <div class="person">
+              <strong>Client Name</strong>
+              Company / Role
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY -->
+    <section id="trusted">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Trusted by</div>
+          <h2>Businesses and teams we work with.</h2>
+          <p>
+            Add real client names or authorized logos here as your client portfolio grows.
+          </p>
+        </div>
+
+        <div class="trusted">
+          <div class="trusted-box">CLIENT LOGO</div>
+          <div class="trusted-box">CLIENT LOGO</div>
+          <div class="trusted-box">CLIENT LOGO</div>
+          <div class="trusted-box">CLIENT LOGO</div>
+          <div class="trusted-box">CLIENT LOGO</div>
+        </div>
+
+        <div class="trusted-note">
+          Client logos should only be displayed with permission.
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section id="insights">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">BridanX Insights</div>
+          <h2>Ideas, technology and digital growth.</h2>
+          <p>Useful articles can help visitors and build a long-term organic search presence.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card article">
+            <div class="article-top">⌘</div>
+            <div class="article-body">
+              <h3>What Makes a Professional Business Website?</h3>
+              <p>A practical guide to design, performance, usability and trust.</p>
+              <a class="learn" href="#contact">Read More →</a>
+            </div>
+          </article>
+
+          <article class="card article">
+            <div class="article-top">◈</div>
+            <div class="article-body">
+              <h3>Website vs Web Application</h3>
+              <p>Understand the difference and choose the right digital product for your business.</p>
+              <a class="learn" href="#contact">Read More →</a>
+            </div>
+          </article>
+
+          <article class="card article">
+            <div class="article-top">⚙</div>
+            <div class="article-body">
+              <h3>How Custom Software Can Improve Operations</h3>
+              <p>Explore where tailored software can simplify business workflows.</p>
+              <a class="learn" href="#contact">Read More →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">FAQ</div>
+          <h2>Frequently asked questions.</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>What services does BridanX Tech LLC provide?</summary>
+            <p>BridanX provides website development, application development, digital platform development, custom software, API integrations and automation solutions.</p>
+          </details>
+
+          <details>
+            <summary>Can you build a custom website for my business?</summary>
+            <p>Yes. Website projects can be designed around your brand, audience, business goals and required functionality.</p>
+          </details>
+
+          <details>
+            <summary>Can you build a complete digital platform?</summary>
+            <p>Yes. Platform projects can include user accounts, dashboards, databases, business workflows, APIs and other required functionality.</p>
+          </details>
+
+          <details>
+            <summary>Do you develop mobile applications?</summary>
+            <p>Application development can be planned according to the required platforms, features, users and technical requirements.</p>
+          </details>
+
+          <details>
+            <summary>Can you integrate third-party services?</summary>
+            <p>Yes. API and integration work can connect appropriate external services with your website, application or platform.</p>
+          </details>
+
+          <details>
+            <summary>How do I start a project?</summary>
+            <p>Contact BridanX through email, phone or WhatsApp and describe what you want to build. The project can then be scoped around your requirements.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div class="label">Let's build</div>
+          <h2>Have an idea? Let's turn it into a product.</h2>
+          <p>
+            Tell us what you're trying to create and let's explore the right
+            technology solution for your business.
+          </p>
+
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="#contact">Start a Project →</a>
+            <a class="btn btn-secondary" href="https://wa.me/256746673971?text=Hello%20BridanX%20Tech%20LLC%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Contact</div>
+          <h2>Let's talk about your project.</h2>
+          <p>Tell us what you're building, what problem it should solve and where you want to take it.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <div class="contact-method">
+              <span>Email</span>
+              <a href="mailto:worldbridan3@gmail.com">worldbridan3@gmail.com</a>
+            </div>
+
+            <div class="contact-method">
+              <span>Phone</span>
+              <a href="tel:+256746673971">+256 746 673 971</a>
+            </div>
+
+            <div class="contact-method">
+              <span>WhatsApp</span>
+              <a href="https://wa.me/256746673971" target="_blank" rel="noopener">Message BridanX on WhatsApp →</a>
+            </div>
+
+            <div class="contact-method">
+              <span>Project Types</span>
+              <a href="#services">Websites · Applications · Platforms · Software</a>
+            </div>
+          </div>
+
+          <form id="projectForm">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+
+            <div class="form-row">
+              <input type="text" name="company" placeholder="Company / organization">
+              <select name="projectType">
+                <option value="">Project type</option>
+                <option>Website Development</option>
+                <option>Application Development</option>
+                <option>Platform Development</option>
+                <option>Custom Software</option>
+                <option>API / Integration</option>
+                <option>Automation</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+
+            <button class="btn btn-primary" type="submit">Send Project Inquiry →</button>
+
+            <div class="form-note">
+              This front-end form opens an email draft. For production,
+              connect it to your preferred form backend or CRM.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="brand" href="#home">
+            <div class="logo">BX</div>
+            <div>BridanX Tech<small>LLC</small></div>
+          </a>
+
+          <p>
+            Digital products, software and technology solutions designed
+            around real business goals.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Company</div>
+          <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Services</div>
+          <div class="footer-links">
+            <a href="#services">Web Development</a>
+            <a href="#services">Applications</a>
+            <a href="#services">Platforms</a>
+            <a href="#services">Custom Software</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Resources</div>
+          <div class="footer-links">
+            <a href="#insights">Insights</a>
+            <a href="#faq">FAQ</a>
+            <a href="#technology">Technology</a>
+            <a href="#contact">Start a Project</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        <div>© 2026 BridanX Tech LLC. All rights reserved.</div>
+        <div>Digital Products · Software · Innovation</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP + CALL -->
+  <div class="floating-contact" aria-label="Contact BridanX Tech LLC">
+    <a
+      class="float-btn whatsapp"
+      href="https://wa.me/256746673971?text=Hello%20BridanX%20Tech%20LLC%2C%20I%27d%20like%20to%20discuss%20a%20project."
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat with BridanX Tech LLC on WhatsApp">
+      <span>WhatsApp</span> 💬
+    </a>
+
+    <a
+      class="float-btn call"
+      href="tel:+256746673971"
+      aria-label="Call BridanX Tech LLC">
+      <span>Call Us</span> 📞
+    </a>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+    });
+
+    // Contact form: creates an email draft without exposing form data to a third-party service.
+    document.getElementById("projectForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const data = new FormData(this);
+      const name = data.get("name") || "";
+      const email = data.get("email") || "";
+      const company = data.get("company") || "";
+      const projectType = data.get("projectType") || "";
+      const message = data.get("message") || "";
+
+      const subject = encodeURIComponent("New BridanX Tech LLC Project Inquiry");
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Company: " + company + "\n" +
+        "Project Type: " + projectType + "\n\n" +
+        "Project Details:\n" + message
+      );
+
+      window.location.href =
+        "mailto:worldbridan3@gmail.com?subject=" + subject + "&body=" + body;
+    });
+  </script>
+
+</body>
+</html>
+'''
+
+path = Path("/mnt/data/BridanX-Tech-LLC-index.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created: {path}")
