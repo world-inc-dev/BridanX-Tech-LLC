@@ -1011,6 +1011,48 @@
       }
     }
 
+    /* INDUSTRY SOLUTIONS */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .industry-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(15,23,42,.82), rgba(8,18,38,.72));
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .industry-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34,211,238,.35);
+      box-shadow: 0 20px 55px rgba(0,0,0,.22);
+    }
+    .industry-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 22px;
+      border-radius: 16px;
+      color: var(--cyan);
+      font-size: 25px;
+      background: rgba(34,211,238,.09);
+      border: 1px solid rgba(34,211,238,.18);
+    }
+    .industry-card h3 { font-size: 21px; line-height: 1.3; margin-bottom: 12px; }
+    .industry-card p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    .industry-card ul { list-style: none; display: grid; gap: 10px; margin-bottom: 24px; }
+    .industry-card li { color: #cbd5e1; font-size: 13px; }
+    .industry-card li::before { content: "✓"; color: var(--success); font-weight: 900; margin-right: 9px; }
+    .industry-card > a { color: #7dd3fc; font-size: 14px; font-weight: 750; margin-top: auto; }
+    .industry-card > a:hover { color: white; }
+
     /* =========================================================
        ABOUT
     ========================================================= */
@@ -1913,6 +1955,7 @@
     ========================================================= */
 
     @media (max-width: 900px) {
+      .industries-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
       .nav-links {
         position: fixed;
@@ -3904,6 +3947,42 @@ DigitalExperience() {
 
     </section>
 
+
+    <!-- =====================================================
+         INDUSTRIES WE SUPPORT
+    ====================================================== -->
+    <section id="industries">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <div class="section-label">Solutions for your sector</div>
+          <h2>Technology that fits the way you work.</h2>
+          <p>We start with your goals, your customers and your daily workflow—then recommend a practical digital solution.</p>
+        </div>
+        <div class="industries-grid">
+          <article class="industry-card reveal">
+            <div class="industry-icon">▦</div>
+            <h3>Schools & Education</h3>
+            <p>Present your school professionally online, share admissions information and make it easier for parents to reach you.</p>
+            <ul><li>School websites and admissions pages</li><li>News, events and enquiry forms</li><li>Digital communication tools</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%20need%20a%20digital%20solution%20for%20a%20school." target="_blank" rel="noopener noreferrer">Discuss a school project →</a>
+          </article>
+          <article class="industry-card reveal">
+            <div class="industry-icon">◇</div>
+            <h3>Shops & Online Stores</h3>
+            <p>Showcase products, answer customer questions and help your business reach more people online.</p>
+            <ul><li>Product catalogues and store websites</li><li>WhatsApp enquiry integration</li><li>Promotional landing pages</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%20need%20a%20website%20or%20online%20catalogue%20for%20my%20business." target="_blank" rel="noopener noreferrer">Discuss a store project →</a>
+          </article>
+          <article class="industry-card reveal">
+            <div class="industry-icon">⌘</div>
+            <h3>Companies & Service Businesses</h3>
+            <p>Build trust with a clear digital presence and streamline the way customers discover and contact your company.</p>
+            <ul><li>Corporate websites and portfolios</li><li>Booking and lead-generation forms</li><li>Custom dashboards and automation</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%20would%20like%20to%20discuss%20a%20website%20or%20software%20project." target="_blank" rel="noopener noreferrer">Discuss a company project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- =====================================================
          FAQ
