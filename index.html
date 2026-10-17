@@ -2250,7 +2250,281 @@
       }
     }
 
-</style>
+
+    /* =========================================================
+       PREMIUM HOMEPAGE POLISH — BRIDANX TECH LLC
+       Added as a focused visual layer without removing content.
+    ========================================================= */
+    body {
+      background:
+        radial-gradient(ellipse at 50% -12%, rgba(37,99,235,.28), transparent 48%),
+        radial-gradient(ellipse at 95% 34%, rgba(34,211,238,.10), transparent 28%),
+        radial-gradient(ellipse at 0% 68%, rgba(37,99,235,.12), transparent 32%),
+        linear-gradient(145deg, #030611 0%, #071126 48%, #030816 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .19;
+      background-image:
+        linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+
+    header {
+      background: rgba(3, 8, 22, .84);
+      border-bottom-color: rgba(103, 232, 249, .13);
+      box-shadow: 0 12px 38px rgba(0,0,0,.15);
+    }
+
+    .brand-logo {
+      background: linear-gradient(145deg, #60a5fa, #22d3ee);
+      color: #04101f;
+      box-shadow: 0 8px 28px rgba(34,211,238,.24);
+    }
+
+    .brand-text span {
+      letter-spacing: -.035em;
+    }
+
+    .nav-links a:not(.nav-button) {
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-links a:not(.nav-button):hover {
+      color: #67e8f9;
+      background: rgba(34,211,238,.06);
+      border-radius: 10px;
+    }
+
+    .nav-button,
+    .btn-primary {
+      background: linear-gradient(115deg, #2563eb, #0891b2 72%, #22d3ee);
+      border: 1px solid rgba(165,243,252,.26);
+      box-shadow: 0 12px 32px rgba(8,145,178,.22);
+      transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+    }
+
+    .nav-button:hover,
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 17px 38px rgba(8,145,178,.3);
+      filter: brightness(1.08);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: min(68vw, 820px);
+      height: 520px;
+      top: 5%;
+      left: 10%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(37,99,235,.17), rgba(34,211,238,.045) 44%, transparent 72%);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(48px, 6.3vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.065em;
+      text-wrap: balance;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      background: linear-gradient(100deg, #93c5fd 0%, #60a5fa 38%, #67e8f9 82%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 7px 30px rgba(34,211,238,.12));
+    }
+
+    .eyebrow {
+      border-color: rgba(103,232,249,.24);
+      background: rgba(8,145,178,.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .hero-description {
+      max-width: 600px;
+      color: #c1cee0;
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.85;
+    }
+
+    .hero-card {
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(96,165,250,.5), transparent 34%, rgba(34,211,238,.24));
+      opacity: .7;
+    }
+
+    .terminal {
+      border-color: rgba(103,232,249,.2);
+      box-shadow: 0 28px 90px rgba(0,0,0,.35), 0 0 55px rgba(37,99,235,.10);
+    }
+
+    .trust-bar {
+      border-top: 1px solid rgba(103,232,249,.1);
+      border-bottom: 1px solid rgba(103,232,249,.1);
+      background: linear-gradient(90deg, rgba(8,17,38,.75), rgba(8,31,53,.62), rgba(8,17,38,.75));
+      backdrop-filter: blur(12px);
+    }
+
+    .trust-item strong {
+      color: #67e8f9;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .section-label {
+      color: #67e8f9;
+      letter-spacing: .16em;
+    }
+
+    .section-heading h2 {
+      text-wrap: balance;
+      letter-spacing: -.045em;
+    }
+
+    .section-heading p {
+      color: #aebdd2;
+    }
+
+    .service-card,
+    .solution,
+    .why-card,
+    .process-card,
+    .contact-info,
+    .contact-form {
+      border: 1px solid rgba(148,163,184,.15);
+      box-shadow: 0 18px 55px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.025);
+      backdrop-filter: blur(10px);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .service-card:hover,
+    .why-card:hover,
+    .process-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(103,232,249,.35);
+      box-shadow: 0 24px 60px rgba(0,0,0,.25), 0 0 28px rgba(34,211,238,.055);
+    }
+
+    .service-icon {
+      color: #67e8f9;
+      background: rgba(34,211,238,.075);
+      border: 1px solid rgba(34,211,238,.13);
+      border-radius: 16px;
+    }
+
+    .service-number {
+      color: #7dd3fc;
+    }
+
+    .ceo-card {
+      border: 1px solid rgba(103,232,249,.2);
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba(37,99,235,.14), transparent 48%),
+        linear-gradient(135deg, rgba(15,23,42,.97), rgba(5,15,31,.95));
+      box-shadow: 0 28px 90px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.035);
+    }
+
+    .ceo-photo img {
+      object-position: center top;
+    }
+
+    .contact-detail {
+      border: 1px solid rgba(148,163,184,.11);
+      border-radius: 15px;
+      padding: 13px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .contact-detail strong {
+      overflow-wrap: anywhere;
+    }
+
+    .contact-detail a {
+      color: #e2e8f0;
+      transition: color .2s ease;
+    }
+
+    .contact-detail a:hover {
+      color: #67e8f9;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(103,232,249,.7);
+      box-shadow: 0 0 0 3px rgba(34,211,238,.10);
+      outline: none;
+    }
+
+    footer {
+      border-top: 1px solid rgba(103,232,249,.13);
+      background: rgba(2,6,18,.72);
+    }
+
+    .floating-btn {
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 12px 32px rgba(0,0,0,.35);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 16px 38px rgba(0,0,0,.4);
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: clamp(43px, 12.5vw, 62px);
+        letter-spacing: -.055em;
+      }
+
+      .hero::before {
+        width: 110vw;
+        left: -15%;
+        opacity: .8;
+      }
+
+      .trust-grid {
+        gap: 14px;
+      }
+
+      .trust-item {
+        font-size: 13px;
+      }
+    }
+
+
+  </style>
 </head>
 
 <body>
@@ -3761,8 +4035,7 @@ DigitalExperience() {
                   Phone
                 </small>
 
-                <strong>
-                  +256 746 673 971
+                <strong>+256 788 271 972
                 </strong>
 
               </div>
@@ -3782,8 +4055,7 @@ DigitalExperience() {
                   WhatsApp
                 </small>
 
-                <strong>
-                  +256 746 673 971
+                <strong>+256 761 537 538
                 </strong>
 
               </div>
