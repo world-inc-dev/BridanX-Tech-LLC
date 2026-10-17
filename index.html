@@ -2763,10 +2763,21 @@ section p { margin-bottom: 10px; }
 .screen-live { margin-left:auto; display:flex; align-items:center; gap:5px; color:#86efac; font-size:8px; white-space:nowrap; }
 .screen-live i,.pulse-dot { width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 10px rgba(34,197,94,.6); }
 .laptop-display { display:grid; grid-template-columns:1.04fr .96fr; gap:8px; min-height:245px; }
-.video-panel,.preview-panel { min-width:0; border-radius:9px; overflow:hidden; background:#080e1b; border:1px solid rgba(148,163,184,.16); }
-.panel-label { padding:8px 9px; color:#93c5fd; font:700 8px ui-monospace,monospace; letter-spacing:1px; }
-.video-panel iframe { display:block; width:100%; height:170px; border:0; background:#020617; }
-.video-caption { padding:8px 8px 4px; font:700 8px ui-monospace,monospace; color:#bbf7d0; white-space:normal; }\n.live-stream-link { display:inline-block; padding:0 8px 9px; color:#67e8f9; font-size:9px; font-weight:800; }\n.live-stream-link:hover { color:#fff; text-decoration:underline; }
+.code-panel,.preview-panel { min-width:0; border-radius:9px; overflow:hidden; background:#080e1b; border:1px solid rgba(148,163,184,.16); }
+ .panel-label { display:flex; justify-content:space-between; align-items:center; gap:6px; padding:8px 9px; color:#93c5fd; font:700 8px ui-monospace,monospace; letter-spacing:1px; }
+ .terminal-status { display:inline-flex; align-items:center; gap:4px; color:#86efac; letter-spacing:.5px; }
+ .terminal-status i,.terminal-footer i { display:inline-block; width:5px;height:5px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.6); }
+ .terminal-bar { display:flex; justify-content:space-between; gap:5px; padding:7px 9px; color:#64748b; background:#0d1424; border-top:1px solid #172033; border-bottom:1px solid #172033; font:8px ui-monospace,monospace; }
+ .code-window { height:182px; overflow:hidden; padding:10px 7px; color:#dbeafe; font:clamp(7px,1.05vw,9px)/1.85 ui-monospace,SFMono-Regular,Menlo,monospace; }
+ .code-line { white-space:pre; animation:codeAppear .45s ease both; }
+ .ln { display:inline-block; width:20px; margin-right:5px; color:#475569; text-align:right; user-select:none; }
+ .code-purple { color:#c084fc; }.code-blue { color:#67e8f9; }.code-yellow { color:#fcd34d; }.code-green { color:#86efac; }.code-comment { color:#64748b; }
+ .terminal-footer { display:flex; align-items:center; justify-content:space-between; gap:6px; padding:8px; color:#86efac; border-top:1px solid #172033; font:7px ui-monospace,monospace; }
+ .terminal-footer span { display:flex; align-items:center; gap:5px; }.terminal-footer #codeActivity { color:#64748b; }
+ .code-rain { height:3px; background:linear-gradient(90deg,transparent,#22d3ee,#86efac,#a78bfa,transparent); background-size:200% 100%; animation:codeScan 2.2s linear infinite; opacity:.8; }
+ @keyframes codeScan { from{background-position:100% 0} to{background-position:-100% 0} }
+ @keyframes codeAppear { from{opacity:.2;transform:translateY(3px)} to{opacity:1;transform:translateY(0)} }
+ @media(prefers-reduced-motion:reduce) { .code-rain,.code-line { animation:none !important; } }
 .caption-muted { color:#64748b; font-weight:400; }
 .preview-panel { --pv-bg:#0b1227; --pv-card:#13264a; --pv-accent:#22d3ee; --pv-text:#f8fafc; padding:10px; color:var(--pv-text); background:linear-gradient(145deg,var(--pv-bg),var(--pv-card)); transition:background .25s,color .25s; }
 .preview-panel[data-theme="ocean"] { --pv-bg:#062f3a; --pv-card:#075985; --pv-accent:#67e8f9; --pv-text:#ecfeff; }
@@ -2800,8 +2811,8 @@ section p { margin-bottom: 10px; }
 .services-grid-compact .service-card p { font-size:13px; line-height:1.55; }
 .services-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:20px; color:#94a3b8; font-size:12px; }
 .text-link { color:#67e8f9; font-weight:700; }
-@media(max-width:900px){.laptop-display{min-height:220px}.video-panel iframe{height:150px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:32px}}
-@media(max-width:640px){.studio-laptop{max-width:500px}.laptop-display{grid-template-columns:1fr;min-height:0}.video-panel iframe{height:190px}.preview-panel{display:none}.screen-title{font-size:8px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.services-grid-compact .service-card{padding:15px !important}.services-grid-compact .service-card h3{font-size:14px}.services-grid-compact .service-card p{font-size:12px}.services-footer{align-items:flex-start}}
+@media(max-width:900px){.laptop-display{min-height:220px}.code-window{height:190px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:32px}}
+@media(max-width:640px){.studio-laptop{max-width:500px}.laptop-display{grid-template-columns:1fr;min-height:0}.code-window{height:170px}.preview-panel{display:none}.screen-title{font-size:8px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.services-grid-compact .service-card{padding:15px !important}.services-grid-compact .service-card h3{font-size:14px}.services-grid-compact .service-card p{font-size:12px}.services-footer{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){.preview-panel{transition:none}}
 
 </style>
@@ -3027,16 +3038,22 @@ DigitalExperience() {
         <span class="screen-live"><i></i> BUILD PREVIEW</span>
       </div>
       <div class="laptop-display">
-        <div class="video-panel">
-          <div class="panel-label">DEVELOPMENT IN ACTION</div>
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/segQTodjXsE?rel=0&modestbranding=1"
-            title="Live web development coding session"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-          <div class="video-caption"><span class="pulse-dot"></span> RECORDED LIVE-CODING SESSION <span class="caption-muted">· web development</span></div><a class="live-stream-link" href="https://www.twitch.tv/codinggarden" target="_blank" rel="noopener noreferrer">Watch a live coding stream ↗</a>
+        <div class="code-panel" aria-label="Animated coding screen">
+          <div class="panel-label">LIVE CODE TERMINAL <span class="terminal-status"><i></i> RUNNING</span></div>
+          <div class="terminal-bar"><span>bridanx-studio</span><span>main.js</span><span>UTF-8</span></div>
+          <div class="code-window" id="liveCodeWindow" aria-live="off">
+            <div class="code-line"><span class="ln">01</span><span class="code-purple">const</span> <span class="code-blue">studio</span> = <span class="code-yellow">"BridanX Tech"</span>;</div>
+            <div class="code-line"><span class="ln">02</span><span class="code-purple">function</span> <span class="code-blue">buildDigitalFuture</span>() {</div>
+            <div class="code-line"><span class="ln">03</span>&nbsp;&nbsp;<span class="code-purple">return</span> {</div>
+            <div class="code-line"><span class="ln">04</span>&nbsp;&nbsp;&nbsp;&nbsp;websites: <span class="code-green">"responsive"</span>,</div>
+            <div class="code-line"><span class="ln">05</span>&nbsp;&nbsp;&nbsp;&nbsp;ideas: <span class="code-green">"into products"</span>,</div>
+            <div class="code-line"><span class="ln">06</span>&nbsp;&nbsp;&nbsp;&nbsp;future: <span class="code-green">"building..."</span></div>
+            <div class="code-line"><span class="ln">07</span>&nbsp;&nbsp;};</div>
+            <div class="code-line"><span class="ln">08</span>}</div>
+            <div class="code-line code-comment"><span class="ln">09</span>// turning ideas into digital solutions_</div>
+          </div>
+          <div class="terminal-footer"><span><i></i> SYSTEM ONLINE</span><span id="codeActivity">Compiling interface...</span></div>
+          <div class="code-rain" aria-hidden="true"></div>
         </div>
         <div class="preview-panel" id="studioPreview" data-theme="cyber">
           <div class="preview-top"><span>PROJECT PREVIEW</span><span class="preview-menu">•••</span></div>
@@ -3238,23 +3255,9 @@ DigitalExperience() {
             </h2>
 
             <p>
-              Bridan World is the Founder and CEO of
-              BridanX Tech LLC, leading the company's
-              vision for building modern software,
-              digital products and technology solutions.
-            </p>
-
-            <p>
-              His focus is on transforming ideas into
-              practical digital products that businesses
-              and organizations can use to improve their
-              operations, presence and customer experience.
-            </p>
-
-            <p>
-              BridanX is built around a simple principle:
-              technology should solve real problems and
-              create measurable value.
+              Bridan World, Founder &amp; CEO of BridanX Tech LLC,
+              turns ideas into modern websites, apps and digital
+              solutions that help businesses grow.
             </p>
 
             <div class="signature">
@@ -3896,6 +3899,29 @@ DigitalExperience() {
 
 /* Interactive project-preview themes */
 (function () {
+  // Animated code-terminal effect (visual demo, not a live server connection).
+  const codeWindow = document.getElementById('liveCodeWindow');
+  const codeActivity = document.getElementById('codeActivity');
+  if (codeWindow && codeActivity && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const codeSamples = [
+      ['<span class="ln">10</span><span class="code-purple">const</span> <span class="code-blue">app</span> = <span class="code-green">createDigitalExperience</span>();', 'Building interface...'],
+      ['<span class="ln">11</span><span class="code-blue">app</span>.<span class="code-yellow">responsive</span> = <span class="code-purple">true</span>;', 'Optimising layout...'],
+      ['<span class="ln">12</span><span class="code-purple">await</span> <span class="code-blue">deploy</span>(<span class="code-green">"production"</span>);', 'Preparing deployment...'],
+      ['<span class="ln">13</span><span class="code-blue">project</span>.<span class="code-yellow">status</span> = <span class="code-green">"checked"</span>;', 'Checking project settings...'],
+      ['<span class="ln">14</span><span class="code-purple">return</span> <span class="code-green">"Ideas → Digital solutions"</span>;', 'Refreshing build preview...']
+    ];
+    let codeIndex = 0;
+    window.setInterval(() => {
+      const row = document.createElement('div');
+      row.className = 'code-line';
+      row.innerHTML = codeSamples[codeIndex % codeSamples.length][0];
+      codeWindow.appendChild(row);
+      while (codeWindow.children.length > 9) codeWindow.removeChild(codeWindow.firstElementChild);
+      codeActivity.textContent = codeSamples[codeIndex % codeSamples.length][1];
+      codeIndex++;
+    }, 1250);
+  }
+
   const preview = document.getElementById('studioPreview');
   const buttons = document.querySelectorAll('[data-theme-choice]');
   const hint = document.getElementById('themeHint');
