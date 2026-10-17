@@ -271,27 +271,50 @@
     .brand-logo {
       width: 44px;
       height: 44px;
-
+      position: relative;
+      isolation: isolate;
+      overflow: visible;
       border-radius: 13px;
-
       display: grid;
-
       place-items: center;
-
       background:
-        linear-gradient(
-          135deg,
-          var(--blue2),
-          var(--cyan)
-        );
-
-      color: white;
-
-      font-weight: 900;
-
-      box-shadow:
-        0 0 35px rgba(37,99,235,.4);
+        repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px),
+        linear-gradient(135deg,#071b3a,#0878a8 58%,#22d3ee);
+      color: #fff;
+      font-weight: 950;
+      letter-spacing: -1px;
+      text-shadow: 0 1px 10px rgba(103,232,249,.6);
+      box-shadow: 0 0 24px rgba(34,211,238,.25), inset 0 0 14px rgba(255,255,255,.12);
+      animation: bxLogoGlow 3s ease-in-out infinite;
     }
+    .brand-logo::before,.about-logo::before,.preview-logo::before {
+      content:"";
+      position:absolute;
+      inset:-4px;
+      z-index:-1;
+      border-radius:inherit;
+      background:conic-gradient(from 0deg,transparent 0 12%,#22d3ee 22%,#60a5fa 34%,transparent 47% 62%,#a78bfa 74%,transparent 88% 100%);
+      animation:bxLogoOrbit 5s linear infinite;
+      filter:drop-shadow(0 0 5px rgba(34,211,238,.45));
+    }
+    .brand-logo::after,.about-logo::after,.preview-logo::after {
+      content:"</>";
+      position:absolute;
+      right:-7px;
+      bottom:-5px;
+      display:grid;
+      place-items:center;
+      width:19px;
+      height:14px;
+      border:1px solid rgba(103,232,249,.7);
+      border-radius:4px;
+      background:#061326;
+      color:#67e8f9;
+      font:800 8px/1 ui-monospace,monospace;
+      box-shadow:0 0 12px rgba(34,211,238,.28);
+    }
+    @keyframes bxLogoOrbit { to { transform:rotate(360deg); } }
+    @keyframes bxLogoGlow { 0%,100% { box-shadow:0 0 20px rgba(34,211,238,.2),inset 0 0 12px rgba(255,255,255,.08); } 50% { box-shadow:0 0 34px rgba(34,211,238,.48),inset 0 0 18px rgba(255,255,255,.18); } }
 
     .brand-text span {
       display: block;
@@ -1096,27 +1119,23 @@
     .about-logo {
       width: 180px;
       height: 180px;
-
-      border-radius: 45px;
-
-      display: grid;
-
-      place-items: center;
-
-      font-size: 54px;
-
-      font-weight: 900;
-
+      position:relative;
+      isolation:isolate;
+      border-radius:45px;
+      display:grid;
+      place-items:center;
+      font-size:54px;
+      font-weight:950;
+      letter-spacing:-3px;
+      color:#fff;
+      text-shadow:0 0 22px rgba(103,232,249,.65);
       background:
-        linear-gradient(
-          135deg,
-          var(--blue2),
-          var(--cyan)
-        );
-
-      box-shadow:
-        0 0 100px rgba(37,99,235,.35);
+        repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 7px),
+        linear-gradient(135deg,#071b3a,#0878a8 58%,#22d3ee);
+      box-shadow:0 0 70px rgba(34,211,238,.24),inset 0 0 30px rgba(255,255,255,.1);
+      animation:bxLogoGlow 3s ease-in-out infinite;
     }
+    .about-logo::before { inset:-8px; border-radius:50px; }
 
     .about-content h2 {
       font-size:
@@ -2785,7 +2804,7 @@ section p { margin-bottom: 10px; }
 .preview-top,.preview-bottom { display:flex; align-items:center; justify-content:space-between; font:700 7px ui-monospace,monospace; letter-spacing:.6px; }
 .preview-menu { color:var(--pv-accent); }
 .preview-brand { display:flex; align-items:center; gap:7px; margin-top:13px; font-size:9px; line-height:1.35; }
-.preview-logo { display:grid; place-items:center; width:25px;height:25px;border-radius:7px;background:var(--pv-accent);color:#06111f;font-weight:900; }
+.preview-logo { position:relative;isolation:isolate;display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:linear-gradient(135deg,#0b2450,#22d3ee);color:#fff;font-weight:950;font-size:9px;box-shadow:0 0 12px rgba(34,211,238,.28); } .preview-logo::before { inset:-3px; } .preview-logo::after { width:12px;height:9px;right:-5px;bottom:-4px;font-size:5px;border-radius:2px; }
 .preview-visual { height:100px; margin:12px 0 8px; border-radius:7px; position:relative; overflow:hidden; background:radial-gradient(circle at 70% 35%,var(--pv-accent),transparent 25%),linear-gradient(130deg,var(--pv-card),var(--pv-bg)); }
 .preview-orbit { position:absolute; width:92px;height:92px;border:1px solid var(--pv-accent);border-radius:50%;right:8px;top:3px;opacity:.65; }
 .preview-window { position:absolute;left:10px;top:12px;width:70%;height:75px;border-radius:5px;border:1px solid color-mix(in srgb,var(--pv-accent) 55%,transparent);background:color-mix(in srgb,var(--pv-bg) 72%,transparent);padding:6px;font:700 7px ui-monospace,monospace; }
@@ -2815,6 +2834,7 @@ section p { margin-bottom: 10px; }
 @media(max-width:640px){.studio-laptop{max-width:500px}.laptop-display{grid-template-columns:1fr;min-height:0}.code-window{height:170px}.preview-panel{display:none}.screen-title{font-size:8px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.services-grid-compact .service-card{padding:15px !important}.services-grid-compact .service-card h3{font-size:14px}.services-grid-compact .service-card p{font-size:12px}.services-footer{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){.preview-panel{transition:none}}
 
+@media (prefers-reduced-motion: reduce) { .brand-logo,.about-logo,.brand-logo::before,.about-logo::before,.preview-logo::before { animation:none !important; } }
 </style>
 </head>
 
