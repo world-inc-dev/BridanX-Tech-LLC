@@ -2835,7 +2835,202 @@ section p { margin-bottom: 10px; }
 @media(prefers-reduced-motion:reduce){.preview-panel{transition:none}}
 
 @media (prefers-reduced-motion: reduce) { .brand-logo,.about-logo,.brand-logo::before,.about-logo::before,.preview-logo::before { animation:none !important; } }
-</style>
+
+
+    /* =========================================================
+       BRIDANX FULL-PLATFORM SIGNATURE THEME
+       Extends the animated BX logo language across the site.
+    ========================================================= */
+    :root {
+      --bx-cyan: #22d3ee;
+      --bx-blue: #3b82f6;
+      --bx-violet: #8b5cf6;
+      --bx-glass: rgba(7, 18, 42, .82);
+      --bx-line: rgba(34, 211, 238, .22);
+    }
+
+    body { position: relative; isolation: isolate; }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(34,211,238,.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.075) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+    body::after {
+      content: ""; position: fixed; z-index: -1; pointer-events: none;
+      width: 46vw; height: 46vw; min-width: 280px; min-height: 280px;
+      right: -20vw; bottom: -24vw; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,211,238,.09), rgba(59,130,246,.045) 38%, transparent 70%);
+      animation: bxAmbientFloat 13s ease-in-out infinite alternate;
+    }
+    @keyframes bxAmbientFloat { from { transform: translate3d(0,0,0) scale(.92); } to { transform: translate3d(-5vw,-4vh,0) scale(1.08); } }
+
+    header, .navbar {
+      border-bottom: 1px solid rgba(34,211,238,.15) !important;
+      background: rgba(3,7,18,.82) !important;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+    .nav-links a:not(.nav-button) { position:relative; transition:color .25s,text-shadow .25s; }
+    .nav-links a:not(.nav-button)::after {
+      content:""; position:absolute; left:0; right:100%; bottom:-7px; height:2px;
+      background:linear-gradient(90deg,var(--bx-blue),var(--bx-cyan),var(--bx-violet));
+      box-shadow:0 0 10px rgba(34,211,238,.55); transition:right .25s ease;
+    }
+    .nav-links a:not(.nav-button):hover::after { right:0; }
+    .nav-links a:not(.nav-button):hover { color:#fff; text-shadow:0 0 16px rgba(34,211,238,.28); }
+
+    .btn, .nav-button, button, input[type="submit"] {
+      position:relative; isolation:isolate; overflow:hidden;
+      border:1px solid rgba(125,211,252,.35) !important;
+      border-radius:14px !important;
+      transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,filter .25s ease;
+    }
+    .btn::before, .nav-button::before, input[type="submit"]::before {
+      content:""; position:absolute; z-index:-1; inset:0; pointer-events:none;
+      background:linear-gradient(115deg,transparent 12%,rgba(255,255,255,.18) 35%,transparent 58%);
+      transform:translateX(-130%); transition:transform .65s ease;
+    }
+    .btn:hover::before, .nav-button:hover::before, input[type="submit"]:hover::before { transform:translateX(130%); }
+    .btn:hover, .nav-button:hover, input[type="submit"]:hover {
+      transform:translateY(-3px);
+      border-color:rgba(34,211,238,.8) !important;
+      box-shadow:0 12px 34px rgba(34,211,238,.16),0 0 0 3px rgba(59,130,246,.07);
+    }
+    .btn-primary, .nav-button, input[type="submit"] {
+      background:linear-gradient(115deg,#1d4ed8 0%,#2563eb 38%,#0891b2 72%,#6366f1 100%) !important;
+      background-size:200% 200% !important;
+      color:#fff !important;
+      box-shadow:0 8px 26px rgba(37,99,235,.25),inset 0 1px rgba(255,255,255,.16);
+      animation:bxButtonFlow 8s ease infinite;
+    }
+    @keyframes bxButtonFlow { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+    .btn-secondary {
+      background:linear-gradient(135deg,rgba(15,23,42,.9),rgba(8,47,73,.55)) !important;
+      border-color:rgba(34,211,238,.25) !important;
+      box-shadow:inset 0 1px rgba(255,255,255,.04);
+    }
+
+    .service-card, .showcase-card, .package-card, .project-card, .process-card, .why-card,
+    .contact-info, .contact-form, .hero-card, .cta-card, .card, .solution-card, .about-card {
+      position:relative; isolation:isolate;
+      border-color:rgba(34,211,238,.17) !important;
+      background:linear-gradient(145deg,rgba(13,25,52,.88),rgba(5,14,32,.88)) !important;
+      box-shadow:0 16px 46px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.035);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+    }
+    .service-card::after, .showcase-card::before, .package-card::before,
+    .project-card::before, .process-card::before, .why-card::before,
+    .contact-info::before, .contact-form::before, .cta-card::before {
+      content:""; position:absolute; pointer-events:none; z-index:-1;
+      top:0; left:18px; right:18px; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(34,211,238,.65),rgba(139,92,246,.5),transparent);
+      opacity:.65;
+    }
+    .service-card:hover, .showcase-card:hover, .package-card:hover, .project-card:hover,
+    .process-card:hover, .why-card:hover, .contact-info:hover, .contact-form:hover {
+      transform:translateY(-5px);
+      border-color:rgba(34,211,238,.46) !important;
+      box-shadow:0 22px 55px rgba(0,0,0,.27),0 0 28px rgba(34,211,238,.07);
+    }
+    .service-icon, .contact-icon, .service-number {
+      border:1px solid rgba(34,211,238,.25) !important;
+      background:linear-gradient(135deg,rgba(37,99,235,.22),rgba(34,211,238,.13),rgba(139,92,246,.13)) !important;
+      box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 22px rgba(34,211,238,.06);
+    }
+    .section-label, .showcase-tag {
+      border:1px solid rgba(34,211,238,.22);
+      background:linear-gradient(90deg,rgba(37,99,235,.12),rgba(34,211,238,.08),rgba(139,92,246,.1));
+      box-shadow:inset 0 1px rgba(255,255,255,.035);
+    }
+    .section-heading h2, .hero h1, .contact-info h3 {
+      text-wrap:balance;
+    }
+    .hero h1 span {
+      background:linear-gradient(100deg,#60a5fa 0%,#22d3ee 45%,#a78bfa 85%);
+      background-size:180% auto;
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter:drop-shadow(0 0 18px rgba(34,211,238,.12));
+      animation:bxTextShimmer 8s linear infinite;
+    }
+    @keyframes bxTextShimmer { to { background-position:180% center; } }
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+    textarea, select {
+      border:1px solid rgba(96,165,250,.25) !important;
+      border-radius:12px !important;
+      background:rgba(3,10,25,.76) !important;
+      color:#f8fafc !important;
+      box-shadow:inset 0 1px rgba(255,255,255,.025);
+      transition:border-color .2s,box-shadow .2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline:none !important; border-color:rgba(34,211,238,.72) !important;
+      box-shadow:0 0 0 3px rgba(34,211,238,.10),0 0 22px rgba(34,211,238,.06) !important;
+    }
+    input::placeholder, textarea::placeholder { color:#8496b4 !important; }
+    .contact-detail a { color:#9beafa !important; transition:color .2s,text-shadow .2s; }
+    .contact-detail a:hover { color:#fff !important; text-shadow:0 0 14px rgba(34,211,238,.4); }
+
+    .floating-buttons { gap:12px !important; }
+    .floating-btn {
+      position:relative; isolation:isolate; overflow:visible;
+      width:58px !important; height:58px !important; min-width:58px;
+      border:1px solid rgba(255,255,255,.28) !important;
+      box-shadow:0 10px 28px rgba(0,0,0,.34),0 0 22px rgba(34,211,238,.16) !important;
+      transition:transform .25s ease,box-shadow .25s ease,filter .25s ease !important;
+    }
+    .floating-btn::before {
+      content:""; position:absolute; inset:-5px; z-index:-1; border-radius:inherit;
+      border:1px solid rgba(34,211,238,.55);
+      animation:bxContactOrbit 4s linear infinite;
+      pointer-events:none;
+    }
+    .floating-btn::after {
+      position:absolute; right:70px; top:50%; transform:translate(5px,-50%);
+      padding:7px 11px; border-radius:9px;
+      background:rgba(3,10,25,.94); border:1px solid rgba(34,211,238,.28);
+      color:#eafcff; font-size:12px; font-weight:800; letter-spacing:.2px;
+      white-space:nowrap; opacity:0; pointer-events:none;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+      transition:opacity .2s,transform .2s;
+    }
+    .floating-btn.whatsapp::after { content:"Chat on WhatsApp"; }
+    .floating-btn.call::after { content:"Call BridanX Tech"; }
+    .floating-btn:hover::after { opacity:1; transform:translate(0,-50%); }
+    .floating-btn:hover { transform:translateY(-4px) scale(1.04) !important; filter:saturate(1.12); }
+    .floating-btn.whatsapp {
+      background:linear-gradient(135deg,#075e54,#16a34a 52%,#22d3ee) !important;
+    }
+    .floating-btn.call {
+      background:linear-gradient(135deg,#1d4ed8,#0891b2 55%,#6366f1) !important;
+    }
+    .floating-btn svg { filter:drop-shadow(0 1px 4px rgba(0,0,0,.2)); }
+    @keyframes bxContactOrbit { from { transform:rotate(0deg); opacity:.72; } to { transform:rotate(360deg); opacity:.3; } }
+
+    footer {
+      border-top:1px solid rgba(34,211,238,.16) !important;
+      background:linear-gradient(180deg,rgba(5,12,29,.55),rgba(2,6,18,.92)) !important;
+    }
+    ::selection { background:rgba(34,211,238,.28); color:white; }
+    :focus-visible { outline:2px solid #22d3ee !important; outline-offset:3px; }
+    @media(max-width:600px) {
+      .floating-btn { width:51px !important; height:51px !important; min-width:51px; }
+      .floating-btn::after { display:none; }
+      body::before { background-size:34px 34px; opacity:.11; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      body::after, .btn-primary, .nav-button, input[type="submit"], .hero h1 span,
+      .floating-btn::before { animation:none !important; }
+      *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; }
+    }
+
+  </style>
 </head>
 
 <body>
