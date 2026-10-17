@@ -2688,6 +2688,24 @@
     }
 
 
+  
+    /* CLIENT-CONVERSION SHOWCASE */
+    .showcase-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .showcase-card { position:relative; min-width:0; overflow:hidden; padding:28px; border:1px solid var(--border); border-radius:var(--radius); background:linear-gradient(145deg,rgba(15,23,42,.92),rgba(8,18,38,.78)); transition:transform .25s ease,border-color .25s ease; }
+    .showcase-card:hover { transform:translateY(-6px); border-color:rgba(34,211,238,.38); }
+    .showcase-card::after { content:""; position:absolute; width:150px; height:150px; right:-70px; top:-70px; border-radius:50%; background:rgba(34,211,238,.10); filter:blur(18px); pointer-events:none; }
+    .showcase-tag { display:inline-flex; padding:6px 10px; border:1px solid rgba(34,211,238,.2); border-radius:999px; background:rgba(34,211,238,.07); color:#a5f3fc; font-size:11px; font-weight:800; letter-spacing:.8px; text-transform:uppercase; margin-bottom:18px; }
+    .showcase-card h3 { font-size:21px; line-height:1.3; margin-bottom:12px; }
+    .showcase-card p { color:var(--muted); font-size:14px; margin-bottom:20px; }
+    .showcase-card ul { list-style:none; display:grid; gap:10px; margin-bottom:24px; }
+    .showcase-card li { color:#cbd5e1; font-size:13px; }
+    .showcase-card li::before { content:"✓"; color:var(--success); font-weight:900; margin-right:9px; }
+    .showcase-card a { display:inline-flex; align-items:center; gap:8px; color:#7dd3fc; font-size:14px; font-weight:800; }
+    .showcase-card a:hover { color:white; }
+    .showcase-note { margin-top:22px; color:#94a3b8; font-size:12px; text-align:center; }
+    @media (max-width:900px) { .showcase-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:600px) { .showcase-grid { grid-template-columns:1fr; } .showcase-card { padding:24px; } }
+
   </style>
 </head>
 
@@ -2821,6 +2839,10 @@ DigitalExperience() {
 
         <a href="#solutions">
           Solutions
+        </a>
+
+        <a href="#showcase">
+          Project Ideas
         </a>
 
         <a href="#about">
@@ -3981,6 +4003,42 @@ DigitalExperience() {
             <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%20would%20like%20to%20discuss%20a%20website%20or%20software%20project." target="_blank" rel="noopener noreferrer">Discuss a company project →</a>
           </article>
         </div>
+      </div>
+    </section>
+
+
+    <!-- PROJECT SHOWCASE: EXAMPLE SOLUTIONS, NOT CLAIMED CLIENT CASE STUDIES -->
+    <section id="showcase">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <div class="section-label">Ideas into useful products</div>
+          <h2>What could we build for your business?</h2>
+          <p>Every project starts with your goals. Explore a few examples, then tell us what your organisation needs.</p>
+        </div>
+        <div class="showcase-grid">
+          <article class="showcase-card reveal">
+            <span class="showcase-tag">For education</span>
+            <h3>A stronger school presence</h3>
+            <p>A professional digital home where families can discover your school and enquire about admissions.</p>
+            <ul><li>School profile and programmes</li><li>Admissions and enquiry pathways</li><li>News, events and contact details</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%27d%20like%20to%20discuss%20a%20school%20website." target="_blank" rel="noopener noreferrer">Plan a school website →</a>
+          </article>
+          <article class="showcase-card reveal">
+            <span class="showcase-tag">For retail</span>
+            <h3>A catalogue customers can use</h3>
+            <p>Present products clearly on mobile and make it simple for interested customers to ask questions.</p>
+            <ul><li>Product categories and galleries</li><li>Mobile-friendly browsing</li><li>WhatsApp enquiry links</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%27d%20like%20to%20discuss%20an%20online%20catalogue%20for%20my%20shop." target="_blank" rel="noopener noreferrer">Plan an online catalogue →</a>
+          </article>
+          <article class="showcase-card reveal">
+            <span class="showcase-tag">For growing teams</span>
+            <h3>A platform built around your workflow</h3>
+            <p>Bring the right information and processes together in a custom web application.</p>
+            <ul><li>User accounts and dashboards</li><li>Admin tools and data management</li><li>Integrations and automation options</li></ul>
+            <a href="https://wa.me/256761537538?text=Hello%20BridanX%20Tech%2C%20I%27d%20like%20to%20discuss%20a%20custom%20web%20platform." target="_blank" rel="noopener noreferrer">Discuss a custom platform →</a>
+          </article>
+        </div>
+        <p class="showcase-note">These are example project types. Scope, timeline and pricing are agreed after discussing your requirements.</p>
       </div>
     </section>
 
