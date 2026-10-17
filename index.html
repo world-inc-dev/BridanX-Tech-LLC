@@ -1777,29 +1777,80 @@
       margin-bottom: 7px;
     }
 
+    .contact-form {
+      padding: clamp(22px, 3vw, 36px);
+    }
+
+    .inquiry-form-heading {
+      margin-bottom: 25px;
+    }
+
+    .inquiry-kicker {
+      display: inline-block;
+      margin-bottom: 9px;
+      color: #67e8f9;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+    }
+
+    .inquiry-form-heading h3 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 3vw, 28px);
+      letter-spacing: -.035em;
+    }
+
+    .inquiry-form-heading p,
+    .inquiry-privacy {
+      color: #9fb0c7;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .field label span[aria-hidden="true"] {
+      color: #67e8f9;
+    }
+
+    .optional-label {
+      color: #8293aa;
+      font-weight: 400;
+    }
+
     .field input,
-    .field textarea {
+    .field textarea,
+    .field select {
+      display: block;
       width: 100%;
-
-      border:
-        1px solid var(--border);
-
-      background:
-        rgba(2,6,23,.55);
-
-      color: white;
-
-      border-radius: 12px;
-
+      min-height: 48px;
+      border: 1px solid rgba(148,163,184,.24);
+      background: rgba(2,6,23,.65);
+      color: #f8fafc;
+      border-radius: 13px;
       padding: 13px 14px;
-
       outline: none;
+      font: inherit;
+      font-size: 14px;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
 
-      transition: .2s;
+    .field select {
+      cursor: pointer;
+      color-scheme: dark;
+    }
+
+    .field select option {
+      background: #0b1224;
+      color: #f8fafc;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #71829a;
     }
 
     .field input:focus,
-    .field textarea:focus {
+    .field textarea:focus,
+    .field select:focus {
       border-color:
         rgba(96,165,250,.55);
 
@@ -1809,9 +1860,45 @@
     }
 
     .field textarea {
-      min-height: 140px;
-
+      min-height: 145px;
       resize: vertical;
+    }
+
+    .field-hint {
+      display: block;
+      margin-top: 7px;
+      color: #8192a9;
+      font-size: 11px;
+    }
+
+    .inquiry-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      margin-top: 5px;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 750;
+    }
+
+    .inquiry-submit:hover {
+      transform: translateY(-2px);
+    }
+
+    .inquiry-privacy {
+      margin: 12px 0 0;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    @media (max-width: 600px) {
+      .inquiry-form-heading h3 {
+        font-size: 23px;
+      }
     }
 
     /* =========================================================
@@ -3744,81 +3831,75 @@ DigitalExperience() {
 
           <div class="contact-form reveal">
 
-            <form
-              onsubmit="sendEmail(event)">
-
-              <div class="form-grid">
-
-
-                <div class="field">
-
-                  <label>
-                    Your Name
-                  </label>
-
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="John Doe"
-                    required>
-
-                </div>
-
-
-                <div class="field">
-
-                  <label>
-                    Email
-                  </label>
-
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="you@example.com"
-                    required>
-
-                </div>
-
-
-                <div class="field full">
-
-                  <label>
-                    Project Type
-                  </label>
-
-                  <input
-                    type="text"
-                    id="project"
-                    placeholder="Website, App, Platform, Software...">
-
-                </div>
-
-
-                <div class="field full">
-
-                  <label>
-                    Tell us about your project
-                  </label>
-
-                  <textarea
-                    id="message"
-                    placeholder="Describe what you would like to build..."
-                    required></textarea>
-
-                </div>
-
-
+            <form class="inquiry-form" onsubmit="sendInquiryToWhatsApp(event)">
+              <div class="inquiry-form-heading">
+                <span class="inquiry-kicker">PROJECT ENQUIRY</span>
+                <h3>Tell us what you’re planning.</h3>
+                <p>Share a few details and your enquiry will open in WhatsApp, ready for you to send.</p>
               </div>
 
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Your name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="e.g. Alex Namusoke" autocomplete="name" required>
+                </div>
 
-              <button
-                class="btn btn-primary"
-                type="submit">
+                <div class="field">
+                  <label for="email">Email address <span class="optional-label">(optional)</span></label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+                </div>
 
-                Send Project Inquiry →
+                <div class="field full">
+                  <label for="project">What do you need? <span aria-hidden="true">*</span></label>
+                  <select id="project" name="project" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option>Business or company website</option>
+                    <option>School website</option>
+                    <option>Online store / product catalogue</option>
+                    <option>Mobile app</option>
+                    <option>Web platform / dashboard</option>
+                    <option>Custom software</option>
+                    <option>API integration</option>
+                    <option>AI or business automation</option>
+                    <option>SEO / digital marketing</option>
+                    <option>Website maintenance or other</option>
+                  </select>
+                </div>
 
+                <div class="field">
+                  <label for="budget">Estimated budget</label>
+                  <select id="budget" name="budget">
+                    <option value="" selected>Choose a budget (optional)</option>
+                    <option>Below UGX 300,000</option>
+                    <option>UGX 300,000 – 750,000</option>
+                    <option>UGX 750,000 – 1,500,000</option>
+                    <option>UGX 1,500,000+</option>
+                    <option>Not sure yet — advise me</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="timeline">Preferred timeline</label>
+                  <select id="timeline" name="timeline">
+                    <option value="" selected>Select timeline (optional)</option>
+                    <option>As soon as possible</option>
+                    <option>Within 2–4 weeks</option>
+                    <option>Within 1–3 months</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="message">Project details <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" placeholder="What would you like us to build? Include any key features, goals or questions." required></textarea>
+                  <small class="field-hint">A short description is enough to get started.</small>
+                </div>
+              </div>
+
+              <button class="btn btn-primary inquiry-submit" type="submit">
+                <span>Continue to WhatsApp</span> <span aria-hidden="true">↗</span>
               </button>
-
+              <p class="inquiry-privacy">Your details will be included in a WhatsApp message to BridanX Tech LLC.</p>
             </form>
 
           </div>
@@ -4107,57 +4188,41 @@ DigitalExperience() {
       new Date().getFullYear();
 
 
-    /* CONTACT FORM */
+    /* PROJECT INQUIRY: OPEN A PRE-FILLED WHATSAPP MESSAGE */
 
-    function sendEmail(event) {
-
+    function sendInquiryToWhatsApp(event) {
       event.preventDefault();
 
-      const name =
-        document.getElementById(
-          "name"
-        ).value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const project = document.getElementById("project").value;
+      const budget = document.getElementById("budget").value;
+      const timeline = document.getElementById("timeline").value;
+      const message = document.getElementById("message").value.trim();
 
-      const email =
-        document.getElementById(
-          "email"
-        ).value;
+      if (!name || !project || !message) {
+        event.currentTarget.reportValidity();
+        return;
+      }
 
-      const project =
-        document.getElementById(
-          "project"
-        ).value;
+      const lines = [
+        "Hello BridanX Tech LLC! I'd like to make a project enquiry.",
+        "",
+        "*Name:* " + name,
+        "*Service needed:* " + project,
+        email ? "*Email:* " + email : "",
+        budget ? "*Estimated budget:* " + budget : "",
+        timeline ? "*Preferred timeline:* " + timeline : "",
+        "",
+        "*Project details:*",
+        message
+      ].filter(Boolean);
 
-      const message =
-        document.getElementById(
-          "message"
-        ).value;
+      const whatsappUrl = "https://wa.me/256761537538?text=" +
+        encodeURIComponent(lines.join("\n"));
 
-
-      const subject =
-        encodeURIComponent(
-          "New BridanX Tech Project Inquiry"
-        );
-
-
-      const body =
-        encodeURIComponent(
-
-          "Name: " + name +
-          "\nEmail: " + email +
-          "\nProject: " + project +
-          "\n\nMessage:\n" + message
-
-        );
-
-
-      window.location.href =
-        "mailto:worldbridan3@gmail.com" +
-        "?subject=" +
-        subject +
-        "&body=" +
-        body;
-
+      // Navigate in the same tab to avoid mobile popup blockers.
+      window.location.assign(whatsappUrl);
     }
 
   </script>
