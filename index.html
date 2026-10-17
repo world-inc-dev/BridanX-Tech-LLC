@@ -2988,7 +2988,11 @@ section p { margin-bottom: 10px; }
     .floating-btn::before {
       content:""; position:absolute; inset:-5px; z-index:-1; border-radius:inherit;
       border:1px solid rgba(34,211,238,.55);
-      animation:bxContactOrbit 4s linear infinite;
+      background:conic-gradient(from 0deg, transparent 0deg, rgba(34,211,238,.12) 65deg, rgba(59,130,246,.7) 120deg, rgba(139,92,246,.62) 190deg, transparent 255deg);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude;
+      padding:2px;
+      animation:bxContactOrbit 2.8s linear infinite;
       pointer-events:none;
     }
     .floating-btn::after {
@@ -3004,6 +3008,12 @@ section p { margin-bottom: 10px; }
     .floating-btn.call::after { content:"Call BridanX Tech"; }
     .floating-btn:hover::after { opacity:1; transform:translate(0,-50%); }
     .floating-btn:hover { transform:translateY(-4px) scale(1.04) !important; filter:saturate(1.12); }
+    .floating-btn.whatsapp, .floating-btn.call { animation:bxButtonPulse 3.2s ease-in-out infinite; }
+    .floating-btn.call { animation-delay:-1.6s; }
+    @keyframes bxButtonPulse {
+      0%,100% { box-shadow:0 10px 28px rgba(0,0,0,.34),0 0 16px rgba(34,211,238,.12),inset 0 1px rgba(255,255,255,.2); }
+      50% { box-shadow:0 10px 32px rgba(0,0,0,.34),0 0 28px rgba(34,211,238,.32),inset 0 1px rgba(255,255,255,.3); }
+    }
     .floating-btn.whatsapp {
       background:linear-gradient(135deg,#075e54,#16a34a 52%,#22d3ee) !important;
     }
@@ -3026,7 +3036,7 @@ section p { margin-bottom: 10px; }
     }
     @media(prefers-reduced-motion:reduce) {
       body::after, .btn-primary, .nav-button, input[type="submit"], .hero h1 span,
-      .floating-btn::before { animation:none !important; }
+      .floating-btn::before, .floating-btn.whatsapp, .floating-btn.call { animation:none !important; }
       *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; }
     }
 
