@@ -2753,6 +2753,57 @@ section p { margin-bottom: 10px; }
   section { padding-top: 28px !important; padding-bottom: 28px !important; }
   .hero { padding-top: 34px !important; padding-bottom: 34px !important; }
 }
+
+/* BridanX interactive technology studio */
+.studio-laptop { width:100%; max-width:590px; margin:0 auto; filter:drop-shadow(0 22px 38px rgba(0,0,0,.26)); }
+.laptop-screen { padding:9px; border:1px solid rgba(148,163,184,.32); border-radius:17px 17px 8px 8px; background:linear-gradient(145deg,#263449,#090f1d 42%,#1a2537); box-shadow:inset 0 0 0 1px rgba(255,255,255,.05); }
+.laptop-toolbar { min-height:28px; display:flex; align-items:center; gap:5px; padding:0 7px 8px; color:#94a3b8; font:10px ui-monospace,monospace; }
+.screen-dot { width:6px;height:6px;border-radius:50%;background:#64748b; }
+.screen-title { margin-left:7px; font-size:9px; letter-spacing:1px; }
+.screen-live { margin-left:auto; display:flex; align-items:center; gap:5px; color:#86efac; font-size:8px; white-space:nowrap; }
+.screen-live i,.pulse-dot { width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 10px rgba(34,197,94,.6); }
+.laptop-display { display:grid; grid-template-columns:1.04fr .96fr; gap:8px; min-height:245px; }
+.video-panel,.preview-panel { min-width:0; border-radius:9px; overflow:hidden; background:#080e1b; border:1px solid rgba(148,163,184,.16); }
+.panel-label { padding:8px 9px; color:#93c5fd; font:700 8px ui-monospace,monospace; letter-spacing:1px; }
+.video-panel iframe { display:block; width:100%; height:170px; border:0; background:#020617; }
+.video-caption { padding:8px; font:700 8px ui-monospace,monospace; color:#bbf7d0; white-space:normal; }
+.caption-muted { color:#64748b; font-weight:400; }
+.preview-panel { --pv-bg:#0b1227; --pv-card:#13264a; --pv-accent:#22d3ee; --pv-text:#f8fafc; padding:10px; color:var(--pv-text); background:linear-gradient(145deg,var(--pv-bg),var(--pv-card)); transition:background .25s,color .25s; }
+.preview-panel[data-theme="ocean"] { --pv-bg:#062f3a; --pv-card:#075985; --pv-accent:#67e8f9; --pv-text:#ecfeff; }
+.preview-panel[data-theme="light"] { --pv-bg:#f8fafc; --pv-card:#dbeafe; --pv-accent:#2563eb; --pv-text:#0f172a; }
+.preview-top,.preview-bottom { display:flex; align-items:center; justify-content:space-between; font:700 7px ui-monospace,monospace; letter-spacing:.6px; }
+.preview-menu { color:var(--pv-accent); }
+.preview-brand { display:flex; align-items:center; gap:7px; margin-top:13px; font-size:9px; line-height:1.35; }
+.preview-logo { display:grid; place-items:center; width:25px;height:25px;border-radius:7px;background:var(--pv-accent);color:#06111f;font-weight:900; }
+.preview-visual { height:100px; margin:12px 0 8px; border-radius:7px; position:relative; overflow:hidden; background:radial-gradient(circle at 70% 35%,var(--pv-accent),transparent 25%),linear-gradient(130deg,var(--pv-card),var(--pv-bg)); }
+.preview-orbit { position:absolute; width:92px;height:92px;border:1px solid var(--pv-accent);border-radius:50%;right:8px;top:3px;opacity:.65; }
+.preview-window { position:absolute;left:10px;top:12px;width:70%;height:75px;border-radius:5px;border:1px solid color-mix(in srgb,var(--pv-accent) 55%,transparent);background:color-mix(in srgb,var(--pv-bg) 72%,transparent);padding:6px;font:700 7px ui-monospace,monospace; }
+.preview-window span { display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--pv-accent);margin-right:3px; }
+.preview-window b { display:block;margin-top:12px;font-size:10px;line-height:1.2; }
+.preview-lines i { display:block;height:3px;border-radius:4px;background:var(--pv-accent);opacity:.5;margin:5px 0;width:82%; }
+.preview-lines i:nth-child(2){width:63%;opacity:.28}.preview-lines i:nth-child(3){width:42%;opacity:.18}
+.preview-bottom { margin-top:10px; color:color-mix(in srgb,var(--pv-text) 70%,transparent); letter-spacing:0; }
+.preview-ready { color:#22c55e; }
+.laptop-chin { height:13px; display:grid; place-items:center; background:linear-gradient(180deg,#8c9aaa,#354255 65%,#1b2637); border-radius:0 0 8px 8px; color:#cbd5e1; font:700 6px ui-monospace,monospace; letter-spacing:2px; }
+.laptop-base { width:112%; height:8px; margin-left:-6%; background:linear-gradient(180deg,#64748b,#202b3b 70%,#111827); border-radius:0 0 50% 50%; }
+.theme-controls { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin:14px 0 10px; }
+.theme-label { color:#94a3b8; font-size:9px; font-weight:800; letter-spacing:1.2px; margin-right:3px; }
+.theme-button { border:1px solid rgba(148,163,184,.25); border-radius:999px; padding:6px 11px; color:#cbd5e1; background:rgba(15,23,42,.75); font-size:11px; cursor:pointer; min-height:32px; }
+.theme-button.is-active,.theme-button:focus-visible { color:white; border-color:#22d3ee; background:rgba(8,145,178,.22); outline:2px solid transparent; }
+.theme-hint { flex-basis:100%; font-size:10px; color:#64748b; }
+.studio-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.studio-tags span { font-size:9px; color:#bfdbfe; border:1px solid rgba(96,165,250,.16); background:rgba(37,99,235,.08); padding:5px 8px; border-radius:6px; }
+.services-grid-compact { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.services-grid-compact .service-card { padding:20px !important; }
+.services-grid-compact .service-icon { margin-bottom:10px; }
+.services-grid-compact .service-card h3 { font-size:17px; margin-bottom:7px; }
+.services-grid-compact .service-card p { font-size:13px; line-height:1.55; }
+.services-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:20px; color:#94a3b8; font-size:12px; }
+.text-link { color:#67e8f9; font-weight:700; }
+@media(max-width:900px){.laptop-display{min-height:220px}.video-panel iframe{height:150px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{gap:32px}}
+@media(max-width:640px){.studio-laptop{max-width:500px}.laptop-display{grid-template-columns:1fr;min-height:0}.video-panel iframe{height:190px}.preview-panel{display:none}.screen-title{font-size:8px}.services-grid-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.services-grid-compact .service-card{padding:15px !important}.services-grid-compact .service-card h3{font-size:14px}.services-grid-compact .service-card p{font-size:12px}.services-footer{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.preview-panel{transition:none}}
+
 </style>
 </head>
 
@@ -2968,116 +3019,46 @@ DigitalExperience() {
 
 
         <div class="hero-card reveal">
-
-          <div class="terminal">
-
-            <div class="terminal-top">
-
-              <span class="terminal-dot"></span>
-              <span class="terminal-dot"></span>
-              <span class="terminal-dot"></span>
-
-            </div>
-
-
-            <div class="terminal-body">
-
-              <div>
-                <span class="terminal-blue">
-                  bridanx@technology
-                </span>
-                :
-                <span class="terminal-white">
-                  ~
-                </span>$
-              </div>
-
-              <br>
-
-              <div>
-                <span class="terminal-cyan">
-                  $ build
-                </span>
-                digital_solution
-              </div>
-
-              <div>
-                → analyzing requirements...
-              </div>
-
-              <div>
-                → designing architecture...
-              </div>
-
-              <div>
-                → developing interface...
-              </div>
-
-              <div>
-                → connecting systems...
-              </div>
-
-              <div>
-                → testing application...
-              </div>
-
-              <br>
-
-              <div>
-                <span class="terminal-green">
-                  ✓ BUILD SUCCESSFUL
-                </span>
-              </div>
-
-              <br>
-
-              <div>
-                <span class="terminal-blue">
-                  performance
-                </span>
-                : optimized
-              </div>
-
-              <div>
-                <span class="terminal-blue">
-                  scalability
-                </span>
-                : ready
-              </div>
-
-              <div>
-                <span class="terminal-blue">
-                  security
-                </span>
-                : engineered
-              </div>
-
-              <div>
-                <span class="terminal-blue">
-                  deployment
-                </span>
-                : ready
-              </div>
-
-              <br>
-
-              <div>
-                <span class="terminal-green">
-                  BridanX Tech LLC
-                </span>
-              </div>
-
-              <div>
-                building what's next.
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
+  <div class="studio-laptop">
+    <div class="laptop-screen">
+      <div class="laptop-toolbar">
+        <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+        <span class="screen-title">BRIDANX / DIGITAL STUDIO</span>
+        <span class="screen-live"><i></i> BUILD PREVIEW</span>
       </div>
+      <div class="laptop-display">
+        <div class="video-panel">
+          <div class="panel-label">DEVELOPMENT IN ACTION</div>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/segQTodjXsE?rel=0&modestbranding=1"
+            title="Live web development coding session"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+          <div class="video-caption"><span class="pulse-dot"></span> LIVE BUILD SESSION <span class="caption-muted">· coding &amp; product development</span></div>
+        </div>
+        <div class="preview-panel" id="studioPreview" data-theme="cyber">
+          <div class="preview-top"><span>PROJECT PREVIEW</span><span class="preview-menu">•••</span></div>
+          <div class="preview-brand"><span class="preview-logo">BX</span><span>Digital product<br><b>made for growth.</b></span></div>
+          <div class="preview-visual"><div class="preview-orbit"></div><div class="preview-window"><span></span><span></span><span></span><b>BUILD<br>WHAT'S NEXT</b></div></div>
+          <div class="preview-lines"><i></i><i></i><i></i></div>
+          <div class="preview-bottom"><span>Responsive UI</span><span class="preview-ready">● Ready</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="laptop-chin"><span>BRIDANX TECH LLC</span></div>
+    <div class="laptop-base"></div>
+  </div>
+  <div class="theme-controls">
+    <span class="theme-label">LIVE THEMES</span>
+    <button type="button" class="theme-button is-active" data-theme-choice="cyber">Cyber</button>
+    <button type="button" class="theme-button" data-theme-choice="ocean">Ocean</button>
+    <button type="button" class="theme-button" data-theme-choice="light">Light</button>
+    <span class="theme-hint" id="themeHint" aria-live="polite">Preview updates instantly</span>
+  </div>
+  <div class="studio-tags"><span>Web &amp; Apps</span><span>AI &amp; Automation</span><span>Cloud &amp; APIs</span><span>Commerce</span></div>
+</div></div>
 
     </section>
 
@@ -3128,175 +3109,29 @@ DigitalExperience() {
     ====================================================== -->
 
     <section id="services">
-
-      <div class="container">
-
-        <div class="section-heading reveal">
-
-          <div class="section-label">
-            What We Build
-          </div>
-
-          <h2>
-            Technology that moves businesses forward.
-          </h2>
-
-          <p>
-            From a high-converting website to a
-            complete digital platform, we turn ideas
-            into reliable technology products.
-          </p>
-
-        </div>
-
-
-        <div class="services-grid">
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 01
-            </div>
-
-            <div class="service-icon">
-              ◇
-            </div>
-
-            <h3>
-              Website Development
-            </h3>
-
-            <p>
-              Professional, responsive and
-              performance-focused websites built
-              for organizations, companies,
-              entrepreneurs and modern brands.
-            </p>
-
-          </article>
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 02
-            </div>
-
-            <div class="service-icon">
-              ◫
-            </div>
-
-            <h3>
-              Application Development
-            </h3>
-
-            <p>
-              Custom web and mobile applications
-              designed around your workflows,
-              customers and business objectives.
-            </p>
-
-          </article>
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 03
-            </div>
-
-            <div class="service-icon">
-              ⬡
-            </div>
-
-            <h3>
-              Platform Development
-            </h3>
-
-            <p>
-              Scalable digital platforms with
-              dashboards, accounts, databases,
-              APIs, workflows and administration.
-            </p>
-
-          </article>
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 04
-            </div>
-
-            <div class="service-icon">
-              { }
-            </div>
-
-            <h3>
-              Custom Software
-            </h3>
-
-            <p>
-              Purpose-built software for unique
-              operational requirements that
-              off-the-shelf products cannot solve.
-            </p>
-
-          </article>
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 05
-            </div>
-
-            <div class="service-icon">
-              ⇄
-            </div>
-
-            <h3>
-              APIs & Integrations
-            </h3>
-
-            <p>
-              Connect applications, databases,
-              services and third-party systems
-              through reliable API architectures.
-            </p>
-
-          </article>
-
-
-          <article class="service-card reveal">
-
-            <div class="service-number">
-              SERVICE / 06
-            </div>
-
-            <div class="service-icon">
-              ⚙
-            </div>
-
-            <h3>
-              Automation
-            </h3>
-
-            <p>
-              Reduce repetitive work and improve
-              operations with intelligent workflows
-              and digital automation systems.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="section-label">What We Do</div>
+      <h2>Technology for every stage of your business.</h2>
+      <p>From your first website to a complete digital system, we build practical solutions around your goals.</p>
+    </div>
+    <div class="services-grid services-grid-compact">
+      <article class="service-card reveal"><div class="service-icon">◇</div><h3>Website Development</h3><p>Professional, responsive business, school and company websites.</p></article>
+      <article class="service-card reveal"><div class="service-icon">◫</div><h3>Web &amp; Mobile Apps</h3><p>Useful applications designed around your customers and workflows.</p></article>
+      <article class="service-card reveal"><div class="service-icon">⬡</div><h3>Digital Platforms</h3><p>Member portals, dashboards, admin panels and business systems.</p></article>
+      <article class="service-card reveal"><div class="service-icon">{ }</div><h3>Custom Software</h3><p>Purpose-built tools for your unique business requirements.</p></article>
+      <article class="service-card reveal"><div class="service-icon">▣</div><h3>E-commerce &amp; Online Stores</h3><p>Product catalogues, online shops and enquiry-ready storefronts.</p></article>
+      <article class="service-card reveal"><div class="service-icon">⇄</div><h3>APIs &amp; Integrations</h3><p>Connect apps, databases, payment services and third-party tools.</p></article>
+      <article class="service-card reveal"><div class="service-icon">⚙</div><h3>Automation &amp; AI Workflows</h3><p>Streamline repetitive tasks and improve digital operations.</p></article>
+      <article class="service-card reveal"><div class="service-icon">⌕</div><h3>SEO &amp; Online Visibility</h3><p>Improve search visibility, site structure and discoverability.</p></article>
+      <article class="service-card reveal"><div class="service-icon">✦</div><h3>UI/UX &amp; Product Design</h3><p>Clear, modern interfaces for websites, apps and platforms.</p></article>
+      <article class="service-card reveal"><div class="service-icon">↗</div><h3>Digital Marketing</h3><p>Digital campaigns and online presence support for your brand.</p></article>
+      <article class="service-card reveal"><div class="service-icon">☁</div><h3>Deployment &amp; Cloud Setup</h3><p>Launch support, hosting configuration and release workflows.</p></article>
+      <article class="service-card reveal"><div class="service-icon">⟳</div><h3>Maintenance &amp; Support</h3><p>Updates, troubleshooting and improvements as your needs grow.</p></article>
+    </div>
+    <div class="services-footer"><span>Schools · Shops · Startups · Organisations · Companies</span><a class="text-link" href="#contact">Discuss your project →</a></div>
+  </div>
+</section>
 
 
     <!-- =====================================================
@@ -4057,5 +3892,30 @@ DigitalExperience() {
 
   </script>
 
+<script>
+
+/* Interactive project-preview themes */
+(function () {
+  const preview = document.getElementById('studioPreview');
+  const buttons = document.querySelectorAll('[data-theme-choice]');
+  const hint = document.getElementById('themeHint');
+  if (!preview || !buttons.length) return;
+  const labels = { cyber: 'Cyber theme selected', ocean: 'Ocean theme selected', light: 'Light theme selected' };
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const theme = button.getAttribute('data-theme-choice');
+      preview.setAttribute('data-theme', theme);
+      buttons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      if (hint) hint.textContent = labels[theme] || 'Preview updated';
+    });
+    button.setAttribute('aria-pressed', button.classList.contains('is-active') ? 'true' : 'false');
+  });
+})();
+
+</script>
 </body>
 </html>
