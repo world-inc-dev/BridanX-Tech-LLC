@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">BridanX Tech LLC — We Build the Digital Future</title>
+<desc id="desc">A blue and cyan technology-themed BX logo for BridanX Tech LLC.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020817"/><stop offset=".55" stop-color="#071936"/><stop offset="1" stop-color="#04101f"/></linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset=".52" stop-color="#22d3ee"/><stop offset="1" stop-color="#93c5fd"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#0ea5e9" stop-opacity=".32"/><stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#38bdf8" stroke-opacity=".08"/></pattern>
+ <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<rect width="1200" height="630" rx="0" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="600" cy="240" r="280" fill="url(#glow)"/>
+<g fill="none" stroke="#0ea5e9" stroke-opacity=".5" stroke-width="2">
+ <path d="M0 140H150L190 100H300"/><path d="M0 170H120L160 130H260"/>
+ <path d="M1200 130H1050L1010 170H900"/><path d="M1200 160H1080L1040 200H940"/>
+ <path d="M0 470H140L180 510H300"/><path d="M1200 470H1060L1020 510H900"/>
+</g>
+<g transform="translate(600 205)">
+ <ellipse rx="190" ry="78" transform="rotate(-18)" fill="none" stroke="url(#blue)" stroke-width="7"/>
+ <ellipse rx="166" ry="64" transform="rotate(23)" fill="none" stroke="#38bdf8" stroke-opacity=".35" stroke-width="2"/>
+ <text x="-20" y="47" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="190" font-weight="900" letter-spacing="-20" fill="url(#blue)" stroke="#a5f3fc" stroke-opacity=".3" stroke-width="1">BX</text>
+ <circle cx="170" cy="-28" r="8" fill="#67e8f9"/><circle cx="170" cy="-28" r="17" fill="#22d3ee" opacity=".25" filter="url(#shadow)"/>
+</g>
+<text x="600" y="390" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="75" font-weight="900" letter-spacing="7" fill="#f8fafc">BRIDANX</text>
+<text x="600" y="445" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="13" fill="#22d3ee">TECH LLC</text>
+<path d="M365 469H835" stroke="#22d3ee" stroke-opacity=".65" stroke-width="2"/>
+<text x="600" y="515" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#dbeafe" letter-spacing="1.5">WE BUILD THE DIGITAL FUTURE</text>
+<text x="600" y="568" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#7dd3fc" letter-spacing="3">WEBSITES  •  SOFTWARE  •  APPS  •  AUTOMATION</text>
+</svg>
